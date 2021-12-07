@@ -1,6 +1,5 @@
 CC ?= gcc
 LIBS = -lcurl -ljson-c
-SRCDIR = src
 
 SRC = bitcoinCounter.c bitcoinapi.c
 
@@ -8,7 +7,7 @@ OBJS = $(SRC:.c=.o)
 
 all: bitcoinprice
 
-%.o: $(SRCDIR)/%.c
+%.o: %.c
 	$(CC) -c -o $(@F) $(LIBS) $<
 
 bitcoinprice: $(OBJS)

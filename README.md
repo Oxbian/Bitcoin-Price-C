@@ -2,7 +2,8 @@
 -----------------
        
         
-I'm a fan of cryptocurrencies, so I decided to make a program to get the price of bitcoin and print it with ascii art.    
+I'm a fan of cryptocurrencies, so I decided to make a program to get the price of bitcoin and print it with ascii art.   
+![Screen](https://imgur.com/aJg9hbp.png)
       
 ### Why ASCII ART?
         
@@ -33,6 +34,6 @@ And also need a network connection to get the bitcoin price from the api
 --------
 
         git clone https://github.com/ARKAGEDON/Bitcoin-Price-C.git
-        cd Bitcoin-Price-C
+        cd Bitcoin-Price-C/src
         make
         ./bitcoinprice

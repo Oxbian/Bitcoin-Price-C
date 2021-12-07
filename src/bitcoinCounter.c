@@ -50,7 +50,7 @@ int main()
     {    
         //Calling the function from bitcoinapi.c to get the bitcoin current price
         get_bitcoin_price(T,MAX);
-        printf("%s\n",T);
+        //printf("%s\n",T);
         
         int size=0;
 
