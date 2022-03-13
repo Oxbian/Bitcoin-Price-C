@@ -1,6 +1,12 @@
 # Bitcoin Price in C 
 -----------------
-       
+![Release](https://img.shields.io/badge/Release-v1.0-brightgreen?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-C-blue?style=for-the-badge)
+![Librarie](https://img.shields.io/badge/Librarie-Gtk-green?style=for-the-badge)
+![Size](https://img.shields.io/github/repo-size/ARKAGEDON/Bitcoin-Price-C?label=SIZE&style=for-the-badge)
+![Licence](https://img.shields.io/github/license/ARKAGEDON/Bitcoin-Price-C?style=for-the-badge)
+![OpenSource](https://img.shields.io/badge/OpenSource-important?style=for-the-badge&logo=opencollective&logoColor=white)
+
         
 I'm a fan of cryptocurrencies, so I decided to make a program to get the price of bitcoin and print it with ascii art.   
 ![Screen](https://imgur.com/aJg9hbp.png)
