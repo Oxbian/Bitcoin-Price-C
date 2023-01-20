@@ -8,16 +8,17 @@
 ![OpenSource](https://img.shields.io/badge/OpenSource-important?style=for-the-badge&logo=opencollective&logoColor=white)
 
         
-I'm a fan of cryptocurrencies, so I decided to make a program to get the price of bitcoin and print it with ascii art.   
+I'm interested by cryptocurrencies so I wanted to make a program to show the bitcoin price in ASCII Art.
+
 ![Screen](https://imgur.com/aJg9hbp.png)
       
-### Why ASCII ART?
+## Why ASCII ART?
         
 Why not? ASCII ART is beautiful so I decided to use it :)
 
 ## How it works?
 -----------
-The program get the price of bitcoin from the [BlockChainInfo Website](https://www.blockchain.com/explorer), convert it into a string and from this string I can get the number and convert them into my ascii art.
+The program get the price of bitcoin from the [BlockChainInfo Website](https://www.blockchain.com/explorer), convert it into a string and from this string I can get the price and convert them into my ASCII art.
 
 ## Requirements
 -----------
@@ -34,12 +35,11 @@ The program get the price of bitcoin from the [BlockChainInfo Website](https://w
 
         sudo apt install gcc make libjson-c-dev libcurl4-openssl-dev
 
-And also need a network connection to get the bitcoin price from the api
+And also need a network connection to get the bitcoin price from the API
 
 ## Installation
 --------
 
         git clone https://github.com/Oxbian/Bitcoin-Price-C.git
-        cd Bitcoin-Price-C/src
-        make
+        cd Bitcoin-Price-C && make
         ./bitcoinprice
