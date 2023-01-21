@@ -44,32 +44,37 @@ size_t writefunc(void* ptr, size_t size, size_t nmemb, struct custom_string* str
 void get_bitcoin_price(char* btc_price, int buffersize)
 {
 	CURL* curl;
+	CURLcode res;
 
+	struct custom_string str;
+	init_string(&str);
+	
 	curl = curl_easy_init();
 	if(curl) {
-		struct custom_string str;
-		init_string(&str);
 
 		/*Getting date from the blochain info website*/
 		curl_easy_setopt(curl, CURLOPT_URL, "https://blockchain.info/ticker");
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &str);
-		curl_easy_perform(curl);
-
-		/*Parsing of the json object returned by the website*/
-		struct json_object* parsed_json;
-		struct json_object* USD_json;
-		struct json_object* bitcoin_price;
-		parsed_json = json_tokener_parse(str.ptr);
-		json_object_object_get_ex(parsed_json, "USD", &USD_json);
-		json_object_object_get_ex(USD_json, "15m", &bitcoin_price);
-
-		/*Copy the price of bitcoin into the string send to this function*/
-		strncpy(btc_price, json_object_get_string(bitcoin_price), buffersize - 1);
-		btc_price[buffersize - 1] = '\0';
-
-		/*Cleaning up*/
-		free_string(&str);
+		res = curl_easy_perform(curl);
+        if(res != CURLE_OK) {
+            fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
+		}
 		curl_easy_cleanup(curl);
-  	}
+	}
+
+	/*Parsing of the json object returned by the website*/
+	struct json_object* parsed_json;
+	struct json_object* USD_json;
+	struct json_object* bitcoin_price;
+	parsed_json = json_tokener_parse(str.ptr);
+	json_object_object_get_ex(parsed_json, "USD", &USD_json);
+	json_object_object_get_ex(USD_json, "15m", &bitcoin_price);
+
+	/*Copy the price of bitcoin into the string send to this function*/
+	strncpy(btc_price, json_object_get_string(bitcoin_price), buffersize - 1);
+	btc_price[buffersize - 1] = '\0';
+
+	/*Cleaning up*/
+	free_string(&str);
 }
